@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <script src="./mini-coi.js" scope="./"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <!-- PyScript CSS -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.9.1/core.css">
+
+  <!-- This script tag bootstraps PyScript -->
+<!--   <script type="module" src="https://pyscript.net/releases/2024.9.1/core.js"></script> -->
+
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@pyscript/core@0.4.46/dist/core.js"></script>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/splitpanes@legacy/dist/splitpanes.css">
+  <link rel="stylesheet" href="./style-splitpanes.css">
+  
+  <!-- bokeh scripts -->
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-3.4.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.4.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.4.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.4.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-3.4.1.min.js"></script>
+  <script type="text/javascript">
+   	  Bokeh.set_log_level("info");
+  </script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <splitpanes class="default-theme">
+    <pane>
+        <div class="editor-container">
+            <script type="mpy" src="./eh.py"></script>
+            <script type="py-editor" env="with_data" config="pyscript.toml" setup>
+                with open("./2020-data.txt", mode = 'r') as file: 
+                    temp = file.read()
+                
+                temp = temp.split('\n')
+                temp.remove('')
+                __data__ = [float(i) for i in temp]
+                del temp, file
+            </script>
+			<script id="g" type="py-editor" env="with_data" worker>
+				# Your Python code here
+				print(str(__data__[0]))
+			</script>
+		</div>
+    </pane>
+    <pane>
+      <splitpanes class="default-theme" horizontal="horizontal">
+        <pane>
+		  <section class="pyscript">
+            <div id="myplot"></div>   <!-- DON'T DELETE THIS -->
+          <script type="py" src="./graphs.py" config="./pyscript.toml"></script>
+        </section>
+		</pane>
+        <pane id="text-stuff">
+		  <h1>
+			This is a description of the data and what the user is supposed to do
+		  </h1>
+		  <p>
+			This is a sample. 
+			
+			It's not a Jupyter Notebook. 
+		  </p>
+		</pane>
+      </splitpanes>
+    </pane>
+  </splitpanes>
+</div>
+<!-- partial -->
+    <script src="https://unpkg.com/vue@legacy"></script>
+    <script src="https://unpkg.com/splitpanes@legacy"></script>
+    <script src="./script-splitpanes.js"></script>
+
+</body>
+</html>
