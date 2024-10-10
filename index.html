@@ -33,6 +33,7 @@
   <splitpanes class="default-theme">
     <pane>
         <div class="editor-container">
+	    <script type="py" src="./graphs.py" config="./pyscript.toml"></script>
             <script type="mpy" src="./eh.py"></script>
             <script type="py-editor" env="with_data" config="pyscript.toml" setup>
                 with open("./2020-data.txt", mode = 'r') as file: 
@@ -62,7 +63,6 @@
         <pane>
 		  <section class="pyscript">
             <div id="myplot"></div>   <!-- DON'T DELETE THIS -->
-          <script type="py" src="./graphs.py" config="./pyscript.toml"></script>
         </section>
 		</pane>
         <pane id="text-stuff">
