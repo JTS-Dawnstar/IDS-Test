@@ -42,6 +42,14 @@
                 temp.remove('')
                 __data__ = [float(i) for i in temp]
                 del temp, file
+
+		class _data_obj: 
+		    def __init__(self): 
+		    	pass
+		    def prediction(self, data, value): 
+		    	return NotImplemented
+		
+		data__object = _data_obj()
             </script>
 			<script id="g" type="py-editor" env="with_data" worker>
 				# Your Python code here
