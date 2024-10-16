@@ -20,3 +20,20 @@ p.circle(list(range(len(temperatures))), temperatures, size=3, line_color="orang
 p_json = json.dumps(json_item(p, "myplot"))
 
 Bokeh.embed.embed_item(JSON.parse(p_json))
+
+
+
+from pyscript import document, display
+
+def handle_event(event):
+    # will log `print(6 * 7)`
+    display(event.code)
+    # prevent default execution
+    return True
+
+# Grab reference to the editor
+foreign = document.getElementById("g")
+# Override handleEvent with your own customisation.
+foreign.handleEvent = handle_event
+
+display("Alright")
