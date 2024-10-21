@@ -43,11 +43,10 @@ class _data_obj:
 data__object = _data_obj()"""
 
 def handle_event(event):
-    # will log `print(6 * 7)`
-    event.code = setup_string + event.code
-    display(event.code)
-    # prevent default execution
-    return True
+    code = setup_string + event.code
+    display(code)
+    exec(code, locals(), globals())
+    return False
 
 # Grab reference to the editor
 foreign = document.getElementById("g")
