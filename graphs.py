@@ -5,6 +5,7 @@ temp = temp.split('\n')
 temp.remove('')
 temperatures = [float(i) for i in temp]
 
+
 import json
 
 from js import Bokeh, JSON
@@ -26,14 +27,6 @@ Bokeh.embed.embed_item(JSON.parse(p_json))
 from pyscript import document, display
 
 setup_string = """
-with open("./2020-data.txt", mode = 'r') as file: 
-    temp = file.read()
-
-temp = temp.split('\n')
-temp.remove('')
-__data__ = [float(i) for i in temp]
-del temp, file
-
 class _data_obj: 
     def __init__(self): 
         pass
@@ -43,7 +36,7 @@ class _data_obj:
 data__object = _data_obj()"""
 
 def handle_event(event):
-    code = setup_string + event.code
+    code = setup_string + str(event.code)
     display(code)
     exec(code, locals(), globals())
     return False
