@@ -25,8 +25,26 @@ Bokeh.embed.embed_item(JSON.parse(p_json))
 
 from pyscript import document, display
 
+setup_string = """
+with open("./2020-data.txt", mode = 'r') as file: 
+    temp = file.read()
+
+temp = temp.split('\n')
+temp.remove('')
+__data__ = [float(i) for i in temp]
+del temp, file
+
+class _data_obj: 
+    def __init__(self): 
+        pass
+    def prediction(self, data, value): 
+        return NotImplemented
+
+data__object = _data_obj()"""
+
 def handle_event(event):
     # will log `print(6 * 7)`
+    event.code = setup_string + event.code
     display(event.code)
     # prevent default execution
     return True
