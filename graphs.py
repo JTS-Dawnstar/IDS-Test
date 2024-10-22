@@ -47,7 +47,7 @@ Bokeh.embed.embed_item(JSON.parse(p_json))
 """
 
 def handle_event(event):
-    code = setup_string + event.code + redraw_string
+    code = setup_string + str(event.code) + redraw_string
     display(code)
     exec(code, locals(), globals())
     return False
