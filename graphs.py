@@ -17,7 +17,7 @@ from bokeh.plotting import figure
 p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
-p.circle(list(range(len(temperatures))), temperatures, size=3, line_color="orange", fill_color="orange", fill_alpha=0.5)
+p.scatter(list(range(len(temperatures))), temperatures, size=3, line_color="orange", fill_color="orange", fill_alpha=0.5)
 p_json = json.dumps(json_item(p, "myplot"))
 
 Bokeh.embed.embed_item(JSON.parse(p_json))
@@ -40,7 +40,7 @@ redraw_string = """
 p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
-p.circle(list(range(len(temperatures))), temperatures, size=3, line_color="orange", fill_color="purple", fill_alpha=0.5)
+p.scatter(list(range(len(temperatures))), temperatures, size=3, line_color="orange", fill_color="purple", fill_alpha=0.5)
 p_json = json.dumps(json_item(p, "myplot"))
 
 Bokeh.embed.embed_item(JSON.parse(p_json))
