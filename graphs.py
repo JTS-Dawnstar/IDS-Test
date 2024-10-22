@@ -5,6 +5,8 @@ temp = temp.split('\n')
 temp.remove('')
 temperatures = [float(i) for i in temp]
 
+PRED_RANGE = range(len(temperatures))
+
 
 import json
 
@@ -36,11 +38,14 @@ class _data_obj:
 data__object = _data_obj()"""
 
 redraw_string = """
+preds = [data__object.prediction(temperatures, value) for value in PRED_RANGE]
+
 # create a new plot with default tools, using figure
 p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
-p.scatter(list(range(len(temperatures))), temperatures, size=3, line_color="purple", fill_color="purple", fill_alpha=0.5)
+p.scatter(list(PRED_RANGE), temperatures, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
+p.line(list(PRED_RANGE), preds, line_width = 2, color = "red")
 p_json = json.dumps(json_item(p, "myplot"))
 
 previous = document.getElementById("myplot")
