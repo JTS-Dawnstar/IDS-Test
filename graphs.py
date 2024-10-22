@@ -43,6 +43,9 @@ p = figure(width=400, height=400)
 p.scatter(list(range(len(temperatures))), temperatures, size=3, line_color="orange", fill_color="purple", fill_alpha=0.5)
 p_json = json.dumps(json_item(p, "myplot"))
 
+previous = document.getElementById("myplot")
+previous.remove()
+
 Bokeh.embed.embed_item(JSON.parse(p_json))
 """
 
