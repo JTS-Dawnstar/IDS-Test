@@ -7,7 +7,7 @@ _data = [float(i) for i in temp]
 
 KNOWN_RANGE = range(40)
 PRED_RANGE = range(60, 71)
-known_data = _data[i for i in KNOWN_RANGE]
+known_data = [_data[i] for i in KNOWN_RANGE]
 
 import json
 
