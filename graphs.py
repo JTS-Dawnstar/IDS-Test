@@ -1,12 +1,13 @@
-with open("./2020-data.txt", mode = 'r') as file: 
+with open("./lvl1-data.txt", mode = 'r') as file: 
     temp = file.read()
 
 temp = temp.split('\n')
 temp.remove('')
-temperatures = [float(i) for i in temp]
+_data = [float(i) for i in temp]
 
-PRED_RANGE = range(len(temperatures))
-
+KNOWN_RANGE = range(40)
+PRED_RANGE = range(60, 71)
+known_data = _data[i for i in KNOWN_RANGE]
 
 import json
 
@@ -19,7 +20,7 @@ from bokeh.plotting import figure
 p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
-p.scatter(list(range(len(temperatures))), temperatures, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
+p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
 p_json = json.dumps(json_item(p, "myplot"))
 
 Bokeh.embed.embed_item(JSON.parse(p_json))
@@ -38,14 +39,14 @@ class _data_obj:
 data__object = _data_obj()"""
 
 redraw_string = """
-preds = [data__object.prediction(temperatures, value) for value in PRED_RANGE]
+preds = [data__object.prediction(known_data, value) for value in PRED_RANGE]
 
 # create a new plot with default tools, using figure
 p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
-p.scatter(list(PRED_RANGE), temperatures, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
-p.line(list(PRED_RANGE), preds, line_width = 2, color = "red")
+p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
+p.line(list(KNOWN_RANGE), known_data, line_width = 2, color = "red")
 p_json = json.dumps(json_item(p, "myplot"))
 
 previous = document.getElementById("myplot")
