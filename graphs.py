@@ -2,7 +2,7 @@ with open("./lvl1-data.txt", mode = 'r') as file:
     temp = file.read()
 
 temp = temp.split('\n')
-temp.remove('')
+# temp.remove('')
 _data = [float(i) for i in temp]
 
 KNOWN_RANGE = range(40)
