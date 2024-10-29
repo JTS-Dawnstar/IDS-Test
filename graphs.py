@@ -21,6 +21,8 @@ p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
 p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
+p.vstrip(x0 = [KNOWN_RANGE.start], x1 = [KNOWN_RANGE.stop], fill_color = "green", fill_alpha = 0.2)
+p.vstrip(x0 = [PRED_RANGE.start], x1 = [PRED_RANGE.stop], fill_color = "red", fill_alpha = 0.2)
 p_json = json.dumps(json_item(p, "myplot"))
 
 Bokeh.embed.embed_item(JSON.parse(p_json))
@@ -46,7 +48,9 @@ p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
 p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
-p.line(list(KNOWN_RANGE), known_data, line_width = 2, color = "red")
+p.line(list(range(len(_data))), known_data, line_width = 2, color = "red")
+p.vstrip(x0 = [KNOWN_RANGE.start], x1 = [KNOWN_RANGE.stop], fill_color = "green", fill_alpha = 0.2)
+p.vstrip(x0 = [PRED_RANGE.start], x1 = [PRED_RANGE.stop], fill_color = "red", fill_alpha = 0.2)
 p_json = json.dumps(json_item(p, "myplot"))
 
 previous = document.getElementById("myplot")
