@@ -1,6 +1,6 @@
 name = "Bokeh"
 description = "A simple application that uses Pandas and Bokeh to plot a graph."
-packages = ["pandas", "bokeh==3.4.1", "xyzservices"]
+packages = ["pandas", "bokeh==3.4.1", "xyzservices", "numpy"]
 [files]
 "2020-data.txt" = "2020-data.txt"
 "lvl1-data.txt" = "lvl1-data.txt"
