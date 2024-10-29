@@ -72,7 +72,7 @@ Bokeh.embed.embed_item(JSON.parse(p_json))
 def handle_event(event):
     code = setup_string + str(event.code) + redraw_string
     display(code)
-    exec(code, locals(), locals())
+    exec(code, globals(), globals())
     return False
 
 # Grab reference to the editor
