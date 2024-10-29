@@ -54,8 +54,13 @@ p = figure(width=400, height=400)
 # add a circle renderer with x and y coordinates, size, color, and alpha
 p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
 p.line(list(range(len(_data))), preds, line_width = 2, color = "red")
+
 p.vstrip(x0 = [KNOWN_RANGE.start], x1 = [KNOWN_RANGE.stop], fill_color = "green", fill_alpha = 0.2)
 p.vstrip(x0 = [PRED_RANGE.start], x1 = [PRED_RANGE.stop], fill_color = "red", fill_alpha = 0.2)
+
+p.hstrip(y0 = [0], y1 = [0], line_color = "black", line_dash = 'dashed')
+p.vstrip(x0 = [0], x1 = [0], line_color = "black", line_dash = 'dashed')
+
 p_json = json.dumps(json_item(p, "myplot"))
 
 previous = document.getElementById("myplot")
