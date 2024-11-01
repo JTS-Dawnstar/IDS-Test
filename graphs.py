@@ -78,7 +78,7 @@ def handle_event(event):
     measured = np.array([preds[i] for i in PRED_RANGE]) # The 'preds' var comes from 'redraw_string' in the exec. 
 
     rmse = np.linalg.norm(measured - truth) / np.sqrt(len(truth))
-    display(rmse)
+    display("Average Error: " + str(rmse) + ". ")
     
     return False
 
@@ -87,4 +87,4 @@ foreign = document.getElementById("g")
 # Override handleEvent with your own customisation.
 foreign.handleEvent = handle_event
 
-display("Alright")
+# display("Alright")
