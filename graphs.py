@@ -77,7 +77,7 @@ def handle_event(event):
     truth = np.array([_data[i] for i in PRED_RANGE])
     measured = np.array([preds[i] for i in PRED_RANGE]) # The 'preds' var comes from 'redraw_string' in the exec. 
 
-    rmse = np.linalg.norm(measured - truth) / np.sqrt(len(thruth))
+    rmse = np.linalg.norm(measured - truth) / np.sqrt(len(truth))
     print(rmse)
     
     return False
