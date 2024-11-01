@@ -6,7 +6,7 @@ temp = temp.split('\n')
 _data = [float(i) for i in temp]
 
 KNOWN_RANGE = range(40)
-PRED_RANGE = range(60, 71)
+PRED_RANGE = range(60, 70)
 known_data = [_data[i] for i in KNOWN_RANGE]
 
 import json
@@ -71,8 +71,15 @@ Bokeh.embed.embed_item(JSON.parse(p_json))
 
 def handle_event(event):
     code = setup_string + str(event.code) + redraw_string
-    display(code)
+    # display(code)
     exec(code, globals(), globals())
+    
+    truth = np.array([_data[i] for i in PRED_RANGE])
+    measured = np.array(preds) # The 'preds' var comes from 'redraw_string' in the exec. 
+
+    rmse = np.linalg.norm(measured - truth) / np.sqrt(len(thruth))
+    print(rmse)
+    
     return False
 
 # Grab reference to the editor
