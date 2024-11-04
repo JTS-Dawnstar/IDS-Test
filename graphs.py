@@ -39,16 +39,21 @@ Bokeh.embed.embed_item(JSON.parse(p_json))
 from pyscript import document, display
 
 setup_string = """
+
+class __data__: 
+    x = list(KNOWN_RANGE)
+    y = known_data
+
 class _data_obj: 
     def __init__(self): 
         pass
-    def prediction(self, data, value): 
+    def prediction(self, value): 
         return NotImplemented
 
 data__object = _data_obj()"""
 
 redraw_string = """
-preds = [data__object.prediction(known_data, value) for value in list(range(len(_data)))]
+preds = [data__object.prediction(value) for value in list(range(len(_data)))]
 
 # Stuff with RMSE. 
 truth = np.array([_data[i] for i in PRED_RANGE])
