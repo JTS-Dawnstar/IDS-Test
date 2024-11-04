@@ -69,6 +69,9 @@
 		  <p>
 			You'll notice that the datapoints you can see generally lie in a straight line. This is important, because the type of prediction method you're going to be making is called a "Linear Fit", because it fits a straight line to the data. So how do we actually access the data? You can do this through a variable called <b>__data__</b>. In particular, <b>__data__.x</b> gives you all the x-values for the known datapoints (i.e. 1, 2, 3, 4, 5, up to whatever the last point is, in this case 40), and <b>__data__.y</b> gets the actual recorded data - the y-values. Your program will access these two variables when you make predictions. 
 		  </p>
+		  <p>
+			Now, how are you actually going to program a Linear Fit algorithm? Well, the <b>Numpy</b> library for Python includes a function that can handle most of the math for you! It's called <b>np.polyfit(x, y, deg)</b>. Since we're looking for a linear fit, we'll set <b>deg = 1</b>. The other two arguments, <b>x</b> and <b>y</b>, are lists of x and y coordinates (Like <b>__data__.x</b> and <b>__data__.y</b>). 
+		  </p>
 		</pane>
       </splitpanes>
     </pane>
