@@ -36,10 +36,18 @@
 	    <script type="py" src="./graphs.py" config="./pyscript.toml"></script>
             <!-- <script type="mpy" src="./eh.py"></script> -->
 			<script id="g" type="py-editor" env="with_data" worker>
-				# Your Python code here
-				def predict(data, values): 
+				# This line loads a required math library
+				import numpy as np
+				
+				# Your code goes here
+				
+				
+				def predict(data, value): 
+				    # Your code goes here
+				    
 				    return 15
-
+				
+				# This actually runs your prediction function
 				data__object.prediction = predict
 			</script>
 		</div>
