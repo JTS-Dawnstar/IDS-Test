@@ -64,7 +64,7 @@ h1 {
 }
 
 #text-stuff {
-  text-align: left; 
+  text-align: justify; 
   justify-content: left;
   vertical-align: top;
   align-items: flex-start;
