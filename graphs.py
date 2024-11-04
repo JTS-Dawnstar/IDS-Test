@@ -48,11 +48,22 @@ data__object = _data_obj()"""
 redraw_string = """
 preds = [data__object.prediction(known_data, value) for value in list(range(len(_data)))]
 
+# Stuff with RMSE. 
+truth = np.array([_data[i] for i in PRED_RANGE])
+measured = np.array([preds[i] for i in PRED_RANGE]) # The 'preds' var comes from 'redraw_string' in the exec. 
+
+rmse = np.linalg.norm(measured - truth) / np.sqrt(len(truth))
+display("Average Error: " + str(rmse) + ". ")
+
+
 # create a new plot with default tools, using figure
 p = figure(width=400, height=400)
 
 # add a circle renderer with x and y coordinates, size, color, and alpha
-p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
+if rmse <= 5: 
+    p.scatter(list(range(len(_data))), _data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
+else: 
+    p.scatter(list(KNOWN_RANGE), known_data, size=3, line_color="green", fill_color="green", fill_alpha=0.5)
 p.line(list(range(len(_data))), preds, line_width = 2, color = "red")
 
 p.vstrip(x0 = [KNOWN_RANGE.start], x1 = [KNOWN_RANGE.stop], fill_color = "green", fill_alpha = 0.2)
@@ -73,12 +84,6 @@ def handle_event(event):
     code = setup_string + str(event.code) + redraw_string
     # display(code)
     exec(code, globals(), globals())
-    
-    truth = np.array([_data[i] for i in PRED_RANGE])
-    measured = np.array([preds[i] for i in PRED_RANGE]) # The 'preds' var comes from 'redraw_string' in the exec. 
-
-    rmse = np.linalg.norm(measured - truth) / np.sqrt(len(truth))
-    display("Average Error: " + str(rmse) + ". ")
     
     return False
 
