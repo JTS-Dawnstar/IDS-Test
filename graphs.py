@@ -16,6 +16,8 @@ from js import Bokeh, JSON
 from bokeh.embed import json_item
 from bokeh.plotting import figure
 
+import numpy as np
+
 # create a new plot with default tools, using figure
 p = figure(width=400, height=400)
 
