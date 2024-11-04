@@ -69,7 +69,9 @@ h1 {
   vertical-align: top;
   align-items: flex-start;
   padding-top: 5px;
+  padding-bottom: 5px;
   padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
 }
