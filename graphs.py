@@ -55,7 +55,7 @@ truth = np.array([_data[i] for i in PRED_RANGE])
 measured = np.array([preds[i] for i in PRED_RANGE]) # The 'preds' var comes from 'redraw_string' in the exec. 
 
 rmse = np.linalg.norm(measured - truth) / np.sqrt(len(truth))
-display("Average Error: " + str(rmse) + ". ")
+display("Average Error: " + str(rmse) + ". ", append = False)
 
 
 # create a new plot with default tools, using figure
