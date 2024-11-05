@@ -61,7 +61,7 @@ measured = np.array([preds[i] for i in PRED_RANGE]) # The 'preds' var comes from
 
 rmse = np.linalg.norm(measured - truth) / np.sqrt(len(truth))
 if rmse <= 5: 
-    display("Average Error: " + str(rmse) + ". \n Your average error was less than 5! You passed the level! ", append = False)
+    display("Average Error: " + str(rmse) + ". \\n Your average error was less than 5! You passed the level! ", append = False)
 else: 
     display("Average Error: " + str(rmse) + ". ", append = False)
 
